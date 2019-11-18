@@ -6,7 +6,7 @@ CREATE TABLE Users
     LNAME VARCHAR(50),
     
     Username VARBINARY(50) NOT NULL,
-    Passwd VARBINARY(50) NOT NULL,
+    Passwd VARBINARY(60) NOT NULL,
     Salt VARBINARY(50) NOT NULL,
 
 
