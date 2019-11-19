@@ -1,0 +1,23 @@
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/BarcelonaLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/RealMadridLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/AtleticoMadridLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/SevillaLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/RealSociedadLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/AthleticBilbaoLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/GetafeLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/GranadaLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/ValenciaLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/OsasunaLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/VillarrealLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/LevanteLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/RealValladolidLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/AlavesLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/EibarLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/RealMallorcaLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/RealBetisLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/CeltaVigoLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/EspanyolLogo.png'));
+INSERT INTO Logo (LogoID, Image) VALUES (NULL, LOAD_FILE('/tmp/g2/LeganesLogo.png'));
+
+SELECT * FROM Logo;
+-- DELETE FROM Logo;
