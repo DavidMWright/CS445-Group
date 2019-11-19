@@ -1,0 +1,22 @@
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Barcelona", 1);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "RealMadrid", 2);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "AtleticoMadrid", 3);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Sevilla", 4);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "RealSociedad", 5);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "AthleticBilbao", 6);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Getafe", 7);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Granada", 8);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Valencia", 9);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Osasuna", 10);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Villarreal", 11);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Levante", 12);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "RealValladolid", 13);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Alaves", 14);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Eibar", 15);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "RealMallorca", 16);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "RealBetis", 17);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "CeltaVigo", 18);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Espanyol", 19);
+INSERT INTO SportsTeams (SportsTeamID, Name, LogoID) VALUES (NULL, "Leganes", 20);
+
+SELECT * FROM SportsTeams;

@@ -1,0 +1,1 @@
+INSERT INTO League (LeagueID, Name) VALUES (1, "La Liga");
