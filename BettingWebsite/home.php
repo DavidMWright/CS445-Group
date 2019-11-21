@@ -21,26 +21,41 @@
 
     <body>
         <header>
-					<form method='post1' action='showGameAndRoster.php'>
+					<form method='post' action='showGameAndRoster.php'>
             <ul>
 							<?php  
 								foreach($matchRows as $data)
 								{
-									print '<li><button type="Submit" Value=' . $data['HomeID'] . ' ' . $data['AwayID'] . '>';
+									print '<li><button name="teams" type="Submit" Value=' . $data['HomeID'] . ' ' . $data['AwayID'] . '>';
 									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
 									print '</li>'; 
 								}
 							?>
 						</ul>
-					</form>>
+					</form>
         </header>
 
         <nav>
 					
         </nav>
 				
-				<div>
+				<div id='CurrentBets'>
 					
+				</div>
+				
+				<div id='MakeBet'>
+					<h3>Place Bet</h3>
+					
+					<form method='post' action='betPage.php'>
+						<select Name='BetType'>
+							<option='win'>Match Winner</option>
+							<option='mostShots'>Most Shots</option>
+						</select>
+						
+						<select>
+							
+						</select>
+					</form>
 				</div>
 				
         <footer>
