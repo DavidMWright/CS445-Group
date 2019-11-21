@@ -18,10 +18,10 @@
 			Where Home.SportsTeamID = Matchs.HomeSportsTeamID
 			and Away.SportsTeamID = Matchs.AwaySportsTeamID
 			Order By Matchs.DateOfMatch Desc
-			Limit :num"
+			Limit " . $numOutput
 		);
 		
-		$sth->bindValue(":num", $numOutput);
+		//$sth->bindValue(":num", $numOutput);
 
 		// run the query	
   	$sth->execute();

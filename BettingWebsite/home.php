@@ -1,5 +1,5 @@
 <?php 
-	require_once(__DIR__ . '/../basicErrorHandling.php');
+	require_once('basicErrorHandling.php');
 	require_once ('connDB.php');
 	require_once ('queryMatches.php');
 	
@@ -21,16 +21,18 @@
 
     <body>
         <header>
+					<form method='post1' action='showGameAndRoster.php'>
             <ul>
 							<?php  
 								foreach($matchRows as $data)
 								{
-									print '<li Value=' . $data['HomeID'] . $data['AwayID'] . '>';
+									print '<li><button type="Submit" Value=' . $data['HomeID'] . ' ' . $data['AwayID'] . '>';
 									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
-									print '</li>';
+									print '</li>'; 
 								}
 							?>
 						</ul>
+					</form>>
         </header>
 
         <nav>
