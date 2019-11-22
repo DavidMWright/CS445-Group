@@ -8,6 +8,7 @@
 	
 	require_once ('connDB.php');
 	require_once 'queryTeamPlayers.php';
+	require_once 'queryLogos.php';
 	require_once ('basicErrorHandling.php');
 	session_start();
 
@@ -26,10 +27,20 @@
 		$value = explode(" ", $_POST['teams']);
 		$hometeam = getTeamPlayers($dbh, $value[0]);
 		//$awayteam = getTeamPlayers($dbh, $value[1]);
-		foreach ($value as $row)
-		{
-			print $row;
-		}
+		
+//		print "<table border=1 cellpadding=4>
+//						<tr>";
+//		$hometeamlogo = getLogos($dbh, $value[0]);
+//		print "<td>";
+//		print $hometeamlogo;
+//		print "</td>";
+//		print "	</tr>
+//					</table>";
+//		
+//		foreach ($value as $row)
+//		{
+//			print $row;
+//		}
 
 //		foreach ( $hometeam as $row )
 //		{
@@ -37,7 +48,7 @@
 ////				print $row[2] . ' ' . $row[3]
 ////				.' <br/> ';
 //		}
-		
+		print "<form method='post' action='showGameAndRoster.php'>";
 		$rows = 1; // create variable
 		print "<table border=1 cellpadding=4>";
 		foreach ( $hometeam as $row )
@@ -46,15 +57,15 @@
 			$columns = 0; // create variable
 			while( $columns < 1)
 			{
-				print "<td>";
-				print $row[0] . " , " . $row[1];
-				print "</td>";
+				print '<td><button name="players" type="Submit" Value=' . $row[0] . " , " . $row[1] . ">";
+				print $row[0] . " , " . $row[1] . "</td>";
 				$columns += 1;
 			}
 			print "</tr>";
 			$rows += 1;
 		}
 		print "</table>";
+		print "</form>";
 		?>
 		
 	</body>
