@@ -33,17 +33,16 @@
 	<tr>
 	<?php
 		$value = $_POST['players'];
-		$data = getPlayerProfile($dbh, $value[0]);
-		foreach ($data as $row)
+		$data = getPlayerProfile($dbh, $value);
+		foreach ($data as $row)	
 		{
-			print $row[0];
+			print "<td>" . $row[0] . "</td>";
+			print "<td>" . $row[1] . "</td>";
+			print "<td>" . $row[2] . "</td>";
+			print "<td>" . $row[3] . "</td>";
+			print "<td>" . $row[4] . "</td>";
+			print "<td>" . $row[5] . "</td>";
 		}
-		
-//		print "<td>" . $data[1] . "/td";
-//		print "<td>" . $data[2] . "/td";
-//		print "<td>" . $data[3] . "/td";
-//		print "<td>" . $data[4] . "/td";
-//		print "<td>" . $data[5] . "/td";
 		?>
 	</tr>
 	</table>
