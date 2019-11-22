@@ -55,7 +55,7 @@
 							<?php
 								foreach($allMatches as $data)
 								{
-									print '<option Value='. $data['HomeID'] . ' ' . $data['AwayID'] . '>';
+									print '<option Value='. $data['HomeID'] . ',' . $data['AwayID'] . '>';
 									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
 									print '</option>';
 								}
