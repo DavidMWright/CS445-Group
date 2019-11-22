@@ -14,6 +14,8 @@
 		die("ERROR: No Match");
 	}
 	
+	$match = array();
+	
 	$betType = $_POST['BetType'];
 	$match = explode(' ', $_POST['Match']);
 	
