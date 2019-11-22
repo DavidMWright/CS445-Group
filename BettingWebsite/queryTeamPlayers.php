@@ -11,7 +11,7 @@
 	{
 		$rows = array();
 
-		$sth = $dbh -> prepare("SELECT FName, LName
+		$sth = $dbh -> prepare("SELECT FName, LName, PlayerID
 														FROM Players
 														WHERE OnA = :team");
 		$sth -> bindValue(":team", $TeamID);

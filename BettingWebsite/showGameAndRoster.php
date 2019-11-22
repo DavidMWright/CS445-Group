@@ -48,16 +48,17 @@
 ////				print $row[2] . ' ' . $row[3]
 ////				.' <br/> ';
 //		}
-		print "<form method='post' action='showGameAndRoster.php'>";
+		print "<form method='post' action='showPlayerProfile.php'>";
 		$rows = 1; // create variable
+		print '<div style="margin-left: auto; margin-right: auto; width: 50%">';
 		print "<table border=1 cellpadding=4>";
 		foreach ( $hometeam as $row )
 		{
 			print "<tr>";
 			$columns = 0; // create variable
-			while( $columns < 1)
+			while( $columns < 2)
 			{
-				print '<td><button style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[0] . " , " . $row[1] . ">";
+				print '<td><button style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[2] . ">";
 				print strtoupper($row[0]) . " " . strtoupper($row[1]) . "</button></td>";
 				$columns += 1;
 			}
@@ -65,6 +66,7 @@
 			$rows += 1;
 		}
 		print "</table>";
+		print "/div";
 		print "</form>";
 		?>
 		
