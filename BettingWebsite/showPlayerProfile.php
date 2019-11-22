@@ -7,8 +7,7 @@
   // Description: Get rosters for teams that are playing
 	
 	require_once ('connDB.php');
-	require_once 'queryTeamPlayers.php';
-	require_once 'queryLogos.php';
+	require_once 'queryPlayerProfile.php';
 	require_once ('basicErrorHandling.php');
 	session_start();
 
@@ -34,8 +33,12 @@
 	<tr>
 	<?php
 		$value = $_POST['players'];
-		$data = getTeamPlayers($dbh, $value[0]);
-		//print "<td>" . $data . "/td";
+		$data = getPlayerProfile($dbh, $value[0]);
+		foreach ($data as $row)
+		{
+			print $row[0];
+		}
+		
 //		print "<td>" . $data[1] . "/td";
 //		print "<td>" . $data[2] . "/td";
 //		print "<td>" . $data[3] . "/td";
