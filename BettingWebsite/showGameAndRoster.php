@@ -57,8 +57,8 @@
 			$columns = 0; // create variable
 			while( $columns < 1)
 			{
-				print '<td><button name="players" type="Submit" Value=' . $row[0] . " , " . $row[1] . ">";
-				print $row[0] . " , " . $row[1] . "</td>";
+				print '<td><button style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[0] . " , " . $row[1] . ">";
+				print strtoupper($row[0]) . " " . strtoupper($row[1]) . "</button></td>";
 				$columns += 1;
 			}
 			print "</tr>";

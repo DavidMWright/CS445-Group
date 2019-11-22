@@ -8,14 +8,15 @@
 	$dbh = db_connect();
 	
 	$matchRows = getMatches($dbh, 4);
-	$allMatches = getMAtches($dbh, 10);
 ?>
 
 
 <html>
     <head>
-        <title>Bet</title>
+        <title>Home</title>
+				
         <link rel="stylesheet" type="text/css" href="style.css">
+				<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -47,22 +48,13 @@
 					
 					<form method='post' action='betPage.php'>
 						<select Name='BetType'>
-							<option Value='win'>Match Winner</option>
-							<option Value='mostShots'>Most Shots</option>
+							<option='win'>Match Winner</option>
+							<option='mostShots'>Most Shots</option>
 						</select>
 						
-						<select Name='Match'>
-							<?php
-								foreach($allMatches as $data)
-								{
-									print '<option Value='. $data['HomeID'] . ' ' . $data['AwayID'] . '>';
-									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
-									print '</option>';
-								}
-							?>
+						<select>
+							
 						</select>
-						
-						<button type="Submit">Go</button>
 					</form>
 				</div>
 				
