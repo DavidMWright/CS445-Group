@@ -23,38 +23,21 @@
 	</head>
 
 	<body>
-		
 	  <?php
 		$value = array();
 		$value = explode(',', $_POST['teams']);
-		foreach ($value as $data)
-		{
-			print $data;
-		}
 		$hometeam = getTeamPlayers($dbh, $value[0]);
 		$awayteam = getTeamPlayers($dbh, $value[1]);
 		
-		//print "<table border=1 cellpadding=4>
-		//				<tr>";
-						
-		//print "<td>";
-		//getLogos($dbh, $value[0]);
-		//print $hometeamlogo;
-		//print "</td>";
-		//print "	</tr>
-		//			</table>";
-//		
-//		foreach ($value as $row)
-//		{
-//			print $row;
-//		}
+		print '<div style="margin-left: auto; margin-right: auto; width: 50%">';
+		print "<table border=1 cellpadding=4>";
+		print '<tr><td><span class="container">';
+		print '<img style="width:420px" src="queryLogos.php?id=' . $value[0] . '"></span></td>';
+		print '<td><span class="container">';
+		print '<img style="width:420px" src="queryLogos.php?id=' . $value[1] . '"></span></td></tr>';
+		print "</table>";
+		print "</div>";
 
-//		foreach ( $hometeam as $row )
-//		{
-//  			print $row[0] . ' ' . $row[1] . ' <br/> ';
-////				print $row[2] . ' ' . $row[3]
-////				.' <br/> ';
-//		}
 		print "<form method='post' action='showPlayerProfile.php'>";
 		$rows = 1; // create variable
 		print '<div style="margin-left: auto; margin-right: auto; width: 50%">';
@@ -70,10 +53,9 @@
 			$rows += 1;
 		}
 		print "</table>";
-		print "/div";
+		print "</div>";
 		print "</form>";
 		?>
-		
 	</body>
 
 </html>
