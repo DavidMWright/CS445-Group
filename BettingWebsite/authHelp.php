@@ -1,6 +1,7 @@
 <?php
-	if (!isset ($_SESSION['VALID']) || $_SESSION['VALID'] != -1)
+	if (!isset($_SESSION['VALID']) || $_SESSION['VALID'] != 1)
 	{
-		header('Location: login.html');
+		print $_SESSION['VALID'];
+		// header('Location: badSession.html');
 	}
 ?>

@@ -2,9 +2,10 @@
 	require_once('basicErrorHandling.php');
 	require_once ('connDB.php');
 	require_once ('queryMatches.php');
-	// require_once ('authUser.php');
 	
 	session_start();
+	
+	require_once ('authHelp.php');
 	
 	$dbh = db_connect();
 	

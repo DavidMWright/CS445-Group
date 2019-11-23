@@ -22,14 +22,10 @@
 		{
 			$_SESSION['VALID'] = 1;
 			header('Location: home.php');
-			
-			print 'success';
 		}
 		else
 		{
 			header('Location: login.html');
-			
-			print 'fail';
 		}
 	}
 	else

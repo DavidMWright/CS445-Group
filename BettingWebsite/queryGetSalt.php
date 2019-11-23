@@ -1,12 +1,11 @@
 <?php
-	function queryGetSalt($dbh, $user, $passwd)
+	function queryGetSalt($dbh, $user)
 	{
 		$sth = $dbh->prepare(
-			"Select Salt From Users Where Username = :user and Passwd = :passwd"
+			"Select Salt From Users Where Username = :user"
 		);
 		
 		$sth->bindValue(':user', $user);
-		$sth->bindValue(':passwd', $passwd);
 		
 		$sth->execute();
 		
