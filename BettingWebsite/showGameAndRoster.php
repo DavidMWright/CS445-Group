@@ -25,18 +25,24 @@
 	<body>
 		
 	  <?php
-		$value = explode(" ", $_POST['teams']);
+		$value = array();
+		$value = explode(',', $_POST['teams']);
+		foreach ($value as $data)
+		{
+			print $data;
+		}
 		$hometeam = getTeamPlayers($dbh, $value[0]);
-		//$awayteam = getTeamPlayers($dbh, $value[1]);
+		$awayteam = getTeamPlayers($dbh, $value[1]);
 		
-//		print "<table border=1 cellpadding=4>
-//						<tr>";
-//		$hometeamlogo = getLogos($dbh, $value[0]);
-//		print "<td>";
-//		print $hometeamlogo;
-//		print "</td>";
-//		print "	</tr>
-//					</table>";
+		//print "<table border=1 cellpadding=4>
+		//				<tr>";
+						
+		//print "<td>";
+		//getLogos($dbh, $value[0]);
+		//print $hometeamlogo;
+		//print "</td>";
+		//print "	</tr>
+		//			</table>";
 //		
 //		foreach ($value as $row)
 //		{
@@ -56,13 +62,10 @@
 		foreach ( $hometeam as $row )
 		{
 			print "<tr>";
-			$columns = 0; // create variable
-			while( $columns < 2)
-			{
 				print '<td><span class="container"><button class="btn btn1" style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[2] . "," . $value[0] . "," . $value[0] . ">";
 				print strtoupper($row[0]) . " " . strtoupper($row[1]) . "</button></span></td>";
-				$columns += 1;
-			}
+				print '<td><span class="container"><button class="btn btn1" style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[2] . "," . $value[0] . "," . $value[0] . ">";
+				print strtoupper($awayteam[$rows][0]) . " " . strtoupper($awayteam[$rows][1]) . "</button></span></td>";
 			print "</tr>";
 			$rows += 1;
 		}
