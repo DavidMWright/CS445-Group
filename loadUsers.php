@@ -1,6 +1,6 @@
 <?php 
-	require_once(__DIR__ . '/../basicErrorHandling.php');
-	require_once ('connDB.php');
+	require_once(__DIR__ . '/BettingWebsite/basicErrorHandling.php');
+	require_once(__DIR__ . '/BettingWebsite/connDB.php');
 ?>
 
 <html>

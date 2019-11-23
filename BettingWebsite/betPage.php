@@ -3,6 +3,7 @@
 	require_once('connDB.php');
 	require_once('queryTeam.php');
 	require_once('queryTeamPlayers.php');
+	//require_once ('authUser.php');
 	
 	session_start();
 	
