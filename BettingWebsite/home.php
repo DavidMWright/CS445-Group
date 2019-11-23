@@ -33,10 +33,6 @@
 						</ul>
 					</form>
         </header>
-
-        <nav>
-					
-        </nav>
 				
 				<div id='CurrentBets'>
 					
