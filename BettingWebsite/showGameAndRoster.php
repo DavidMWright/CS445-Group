@@ -59,7 +59,7 @@
 			$columns = 0; // create variable
 			while( $columns < 2)
 			{
-				print '<td><span class="container"><button class="btn btn1" style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[2] . ">";
+				print '<td><span class="container"><button class="btn btn1" style="height:40px;width:400px" name="players" type="Submit" Value=' . $row[2] . "," . $value[0] . "," . $value[0] . ">";
 				print strtoupper($row[0]) . " " . strtoupper($row[1]) . "</button></span></td>";
 				$columns += 1;
 			}

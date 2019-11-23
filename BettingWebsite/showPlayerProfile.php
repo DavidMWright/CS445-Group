@@ -22,31 +22,33 @@
 	</head>
 
 	<body>
-	<table border=1 cellpadding=4>
-	<tr>
-    <th>Player Number</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-		<th>Height</th>
-    <th>Weight</th>
-    <th>Team Name</th>
-  </tr>
-	<tr>
-	<?php
-		$value = $_POST['players'];
-		$data = getPlayerProfile($dbh, $value);
-		foreach ($data as $row)	
-		{
-			print "<td>" . $row[0] . "</td>";
-			print "<td>" . $row[1] . "</td>";
-			print "<td>" . $row[2] . "</td>";
-			print "<td>" . $row[3] . "</td>";
-			print "<td>" . $row[4] . "</td>";
-			print "<td>" . $row[5] . "</td>";
-		}
-		?>
-	</tr>
-	</table>
+	<div class="banner-text">
+		<table border=1 cellpadding=4>
+			<tr>
+				<th>Player Number</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Height</th>
+				<th>Weight</th>
+				<th>Team Name</th>
+			</tr>
+			<tr>
+			<?php
+				$value = $_POST['players'];
+				$data = getPlayerProfile($dbh, $value[0]);
+				foreach ($data as $row)	
+				{
+					print "<td>" . $row[0] . "</td>";
+					print "<td>" . $row[1] . "</td>";
+					print "<td>" . $row[2] . "</td>";
+					print "<td>" . $row[3] . "</td>";
+					print "<td>" . $row[4] . "</td>";
+					print "<td>" . $row[5] . "</td>";
+				}
+				?>
+			</tr>
+		</table>
+	</div>
 	
 	<div class="animation-area">
 		<ul class="box-area">
@@ -58,6 +60,14 @@
 			<li></li>
 		</ul>
 	</div>
+	
+		<form class="banner-text" align="center" method='post' action='showGameAndRoster.php'>
+			
+				<?php
+						print '<span align="center" class="container"><button class="btn btn1" align="center" name="teams" type="Submit" Value=' . $value[0] . ' ' . $value[1] . '>';
+						print "Back </button></span></td>";
+				?>
+		</form>
 	</body>
 
 </html>
