@@ -26,7 +26,7 @@
 							<?php  
 								foreach($matchRows as $data)
 								{
-									print '<li><button name="teams" type="Submit" Value=' . $data['HomeID'] . ' ' . $data['AwayID'] . '>';
+									print '<li><button name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
 									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
 									print '</li>'; 
 								}

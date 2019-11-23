@@ -68,6 +68,14 @@ INSERT INTO Matchs (HomeSportsTeamID, AwaySportsTeamID, ShotsOnGoalHome, ShotsOn
 VALUES (5, 3, 4, 2, 2, 0, DATE "2019-09-14");
 INSERT INTO Matchs (HomeSportsTeamID, AwaySportsTeamID, ShotsOnGoalHome, ShotsOnGoalAway, FinalScoreHome, FinalScoreAway, DateOfMatch) 
 VALUES (1, 9, 10, 4, 5, 2, DATE "2019-09-14");
+INSERT INTO Matchs (HomeSportsTeamID, AwaySportsTeamID, DateOfMatch) 
+VALUES (18, 13, DATE "2019-11-29");
+INSERT INTO Matchs (HomeSportsTeamID, AwaySportsTeamID, DateOfMatch) 
+VALUES (14, 2, DATE "2019-11-30");
+INSERT INTO Matchs (HomeSportsTeamID, AwaySportsTeamID, DateOfMatch) 
+VALUES (5, 15, DATE "2019-11-30");
+INSERT INTO Matchs (HomeSportsTeamID, AwaySportsTeamID, DateOfMatch) 
+VALUES (16, 17, DATE "2019-11-30");
 
 
 
