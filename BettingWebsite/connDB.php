@@ -11,7 +11,7 @@
    function db_connect ()
    {
      $dbh = new PDO("mysql:host=127.0.0.1;dbname=db_group2_f19", 
-    	"bhad1434", "AnandaSchool001");
+    	"db_group2_f19_w", "db_group2_f19_&$");
 		 $dbh->setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
      return ($dbh);
