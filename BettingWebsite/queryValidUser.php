@@ -6,7 +6,6 @@
 		$retVal = FALSE;
 		
 		$salt = queryGetSalt($dbh, $user)[0];
-		print $salt . '<br>';
 		
 		$hashedPW = crypt($passwd.$salt, '$2y$07$8d88bb4a9916b302c1c68c$');
 		
@@ -19,11 +18,12 @@
 		
 		$query = $sth->fetch();
 		
-		print $query['Username'] . ' Result<br>';
+		// print $query . '<br>';
+		// print $query['Username'] . '<-Result<br>';
 		
 		if($query['Username'] == $user)
 		{
-			$retVal = TRUE;
+			$retVal = $query['UserID'];
 		}
 		
 		return $retVal;

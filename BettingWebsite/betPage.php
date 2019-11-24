@@ -22,13 +22,16 @@
 	$betType = $_POST['BetType'];
 	$match = explode(',', $_POST['Match']);
 	
+	$homeTeamID = $match[0];
+	$awayTeamID = $match[1];
+	
 	$dbh = db_connect();
 	
-	$home = getTeam($dbh, $match[0]);
-	$away = getTeam($dbh, $match[1]);
+	$home = getTeam($dbh, $homeTeamID);
+	$away = getTeam($dbh, $awayTeamID);
 	
-	$hPlayers = getTeamPlayers($dbh, $match[0]);
-	$aPlayers = getTeamPlayers($dbh, $match[1]);
+	$hPlayers = getTeamPlayers($dbh, $homeTeamID);
+	$aPlayers = getTeamPlayers($dbh, $awayTeamID);
 ?>
 
 <html>
@@ -46,18 +49,19 @@
 
         </nav>
 				
-				<form mathod='post' action='home.php'>
+				<form method='post' action='betPlaced.php'>
 						<?php
 							if($betType == 'win')
 							{
-								print '<select Name="winBet">';
+								print '<select Name="WinBet">';
 								
-								print '<option Value=home>' . $home[0]['Name'] . '</option>';
-								print '<option Value=away>' . $away[0]['Name'] . '</option>';
+								print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ',' . $homeTeamID . '>' . $home[0]['Name'] . '</option>';
+								print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ',' . $awayTeamID . '>' . $away[0]['Name'] . '</option>';
 							}
+//-------------------------------------------------------
 							elseif($betType == 'mostShots')
 							{
-								print '<select Name="shotBet">';
+								print '<select Name="ShotBet">';
 								
 								foreach($hPlayers as $data)
 								{
@@ -69,10 +73,12 @@
 									print '<option Value=' . $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
 								}
 							}
+//-------------------------------------------------------
+
 						?>
 					</select>
 					
-					Bet Amount:<input type='number' name='amount'>
+					Bet Amount:<input type='number' Name='Amount'>
 					
 					<button type="Submit">Go</button>
 				</form>

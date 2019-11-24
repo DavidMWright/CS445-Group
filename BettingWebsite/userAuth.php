@@ -9,8 +9,6 @@
 	
 	$_SESSION['VALID'] = 0;
 	
-	print 'No Crash<br>';
-	
 	if( isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	{
 		$userID = $_POST['txtUser'];
@@ -18,14 +16,15 @@
 		
 		$result = queryValidUser($dbh, $userID, $passwd);
 		
-		if( TRUE == $result )
+		if( 0 != $result )
 		{
 			$_SESSION['VALID'] = 1;
+			$_SESSION['UserID'] = $result;
 			header('Location: home.php');
 		}
 		else
 		{
-			header('Location: login.html');
+			header('Location: failedLogin.html');
 		}
 	}
 	else

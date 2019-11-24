@@ -2,6 +2,7 @@
 	require_once('basicErrorHandling.php');
 	require_once ('connDB.php');
 	require_once ('queryMatches.php');
+	require_once('queryBets.php');
 	
 	session_start();
 	
@@ -11,6 +12,7 @@
 	
 	$matchRows = getMatches($dbh, 4);
 	$allMatches = getMatches($dbh, 10);
+	$allBets = getBets($dbh, $_SESSION['UserID']);
 ?>
 
 
@@ -36,10 +38,6 @@
 					</form>
         </header>
 				
-				<div id='CurrentBets'>
-					
-				</div>
-				
 				<div id='MakeBet'>
 					<h3>Place Bet</h3>
 					
@@ -62,6 +60,18 @@
 						
 						<button type="Submit">Go</button>
 					</form>
+				</div>
+				
+				<div id='CurrentBets'>
+					<h3>Bets Made</h3>
+					<ul>
+						<?php
+							foreach($allBets as $data)
+							{
+								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>' . $data['Amount'] . '</li>';
+							}
+						?>
+					</ul>
 				</div>
 				
         <footer>
