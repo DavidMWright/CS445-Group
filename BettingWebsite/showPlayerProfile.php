@@ -23,6 +23,15 @@
 
 	<body>
 	<div class="banner-text">
+	<div align="center">
+	<?php
+		$value = explode(',', $_POST['players']);
+		$data = getPlayerProfile($dbh, $value[0]);
+		foreach ($data as $row)	 {
+					print '<span><img style="width:420px" src="queryLogos.php?id=' . $row[5] . '"></span>';
+				}
+		
+	?>
 		<table border=1 cellpadding=4>
 			<tr>
 				<th>Player Number</th>
@@ -34,8 +43,7 @@
 			</tr>
 			<tr>
 			<?php
-				$value = explode(',', $_POST['players']);
-				$data = getPlayerProfile($dbh, $value[0]);
+				
 				foreach ($data as $row)	 {
 					print "<td>" . $row[0] . "</td>";
 					print "<td>" . $row[1] . "</td>";
@@ -47,6 +55,14 @@
 				?>
 			</tr>
 		</table>
+		</div>
+		<form class="banner-text" align="center" method='post' action='showGameAndRoster.php'>
+			
+				<?php
+						print '<span align="center" class="container"><button class="btn btn1" align="center" name="teams" type="Submit" Value=' . $value[1] . ',' . $value[2] . '>';
+						print "Back </button></span></td>";
+				?>
+		</form>
 	</div>
 	
 	<div class="animation-area">
@@ -60,13 +76,7 @@
 		</ul>
 	</div>
 	
-		<form class="banner-text" align="center" method='post' action='showGameAndRoster.php'>
-			
-				<?php
-						print '<span align="center" class="container"><button class="btn btn1" align="center" name="teams" type="Submit" Value=' . $value[1] . ',' . $value[2] . '>';
-						print "Back </button></span></td>";
-				?>
-		</form>
+		
 	</body>
 
 </html>
