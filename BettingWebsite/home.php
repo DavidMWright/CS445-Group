@@ -24,12 +24,12 @@
 
     <body>
         <header>
-					<form method='post' action='showGameAndRoster.php'>
+					<form align="center" method='post' action='showGameAndRoster.php'>
             <ul>
 							<?php  
 								foreach($matchRows as $data)
 								{
-									print '<li><button name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
+									print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
 									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
 									print '</li>'; 
 								}
@@ -58,7 +58,7 @@
 							?>
 						</select>
 						
-						<button type="Submit">Go</button>
+						<button class="btn btn1" type="Submit">Go</button>
 					</form>
 				</div>
 				
