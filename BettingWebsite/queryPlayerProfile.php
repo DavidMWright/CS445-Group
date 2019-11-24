@@ -10,14 +10,12 @@
 	function getPlayerProfile($dbh, $PlayerID)
 	{
 		$rows = array();
-		print $PlayerID;
 		$sth = $dbh -> prepare("SELECT Players.*, SportsTeams.Name, Logo.Image 
 														FROM Players, SportsTeams, Logo
 														WHERE 
 															Players.OnA=SportsTeams.SportsTeamID
 															AND SportsTeams.LogoID = Logo.LogoID
 															AND Players.PlayerID=" . $PlayerID);
-		//$sth -> bindValue(":player", $PlayerID);
 		// run the query
 		$sth -> execute();
 

@@ -34,16 +34,15 @@
 			</tr>
 			<tr>
 			<?php
-				$value = $_POST['players'];
+				$value = explode(',', $_POST['players']);
 				$data = getPlayerProfile($dbh, $value[0]);
-				foreach ($data as $row)	
-				{
+				foreach ($data as $row)	 {
 					print "<td>" . $row[0] . "</td>";
 					print "<td>" . $row[1] . "</td>";
 					print "<td>" . $row[2] . "</td>";
 					print "<td>" . $row[3] . "</td>";
 					print "<td>" . $row[4] . "</td>";
-					print "<td>" . $row[5] . "</td>";
+					print "<td>" . $row[6] . "</td>";
 				}
 				?>
 			</tr>
@@ -64,7 +63,7 @@
 		<form class="banner-text" align="center" method='post' action='showGameAndRoster.php'>
 			
 				<?php
-						print '<span align="center" class="container"><button class="btn btn1" align="center" name="teams" type="Submit" Value=' . $value[0] . ',' . $value[1] . '>';
+						print '<span align="center" class="container"><button class="btn btn1" align="center" name="teams" type="Submit" Value=' . $value[1] . ',' . $value[2] . '>';
 						print "Back </button></span></td>";
 				?>
 		</form>
