@@ -18,11 +18,12 @@
 
 <html>
     <head>
-        <title></title>
+        <title>New Match Added</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
+			<h1>New Match Added</h1>
 			<form class="banner-text" align="center" method='post' action='setNewGame.php'>
 			
 				<?php

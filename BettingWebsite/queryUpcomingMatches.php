@@ -16,7 +16,8 @@
 											From SportsTeams as Home, SportsTeams as Away, Matchs
 											Where Home.SportsTeamID = Matchs.HomeSportsTeamID
 											and Away.SportsTeamID = Matchs.AwaySportsTeamID
-											and DateOfMatch > :currentDate"
+											and DateOfMatch > :currentDate
+											Order by DateOfMatch Asc, HomeID"
 		);
 		
 		$sth -> bindValue(":currentDate", date('Y-m-d'));
