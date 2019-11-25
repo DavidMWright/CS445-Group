@@ -181,11 +181,12 @@ li br{
 .matches{
 	float: left;
 	width: 90%;
+	height: 62px;
+	
+	overflow: auto;
+	overflow-y: hidden;
 }
 
-.matches ul{
-	overflow: scroll;
-}
 
 .Logout{
 	display: inline;
@@ -210,6 +211,7 @@ li br{
 #BetList{
 	height: 35em;
 	overflow: scroll;
+	overflow-x: hidden;
 }
 
 #BetList li{

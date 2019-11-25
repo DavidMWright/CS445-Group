@@ -12,13 +12,13 @@
 
 <html>
     <head>
-        <title></title>
+        <title>Admin - New Match</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
         <header>
-            <h1>Add New Game</h1>
+            <h1>Add New Match</h1>
         </header>
 				
 				<form method='post' action='showAddNewGame.php'>
