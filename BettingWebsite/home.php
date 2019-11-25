@@ -4,7 +4,6 @@
 	
 	require_once('queryBalance.php');
 	require_once('queryUpcomingMatches.php');
-	// require_once ('queryMatches.php');
 	require_once('queryPlayerProfile.php');
 	require_once('queryTeam.php');
 	require_once('queryWins.php');
@@ -18,9 +17,6 @@
 	$dbh = db_connect();
 	
 	$upcoming = getUpcoming($dbh);
-	
-	//$matchRows = getMatches($dbh, 4);
-	//$allMatches = getMatches($dbh, 10);
 	
 	$winBets = getWins($dbh, $_SESSION['UserID']);
 	$shotBets = getShots($dbh, $_SESSION['UserID']);
@@ -61,7 +57,7 @@
         </header>
 				
 				<div id='MakeBet'>
-					<h2 id='PB'>Place Bet</h2>
+					<h2>Place Bet</h2>
 					
 					<form method='post' action='betPage.php'>
 						<p>Choose Bet Type:</p>

@@ -194,18 +194,22 @@ li br{
 }
 
 #MakeBet{
+	box-sizing: border-box;
 	float: left;
 	width: 65%;
 }
 
 #CurrentBets{
+	box-sizing: border-box;
+	border-top: 1px solid transparent;
+	margin-top: 12px;
 	margin-left: 65%;
 	wdith: 35%;
 }
 
 #BetList{
-		height: 35em;
-		overflow: scroll;
+	height: 35em;
+	overflow: scroll;
 }
 
 #BetList li{
@@ -216,7 +220,7 @@ li br{
 }
 
 h1, h2, h3, p{
-		margin: 10px;
+	margin: 16px 10px;
 }
 
 select{
