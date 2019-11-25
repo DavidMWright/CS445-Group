@@ -173,8 +173,20 @@ li br{
 	display: inline;
 }
 
-.Login{
+.Login p{
 	margin-left: 10px;
+	display: inline;
+}
+
+.matches{
+	float: left;
+	width: 90%;
+}
+
+.Logout{
+	display: inline;
+	width: 10%;
+	margin: 0px;
 }
 
 #MakeBet{

@@ -61,7 +61,7 @@
 			$sth->execute();
 		?>
 		
-		<form method="post" action="login.html">
+		<form method="post" action="login.php">
 			<input class='btn btn1' type="Submit" value="Back to Login">
 		</form>
 	</body>

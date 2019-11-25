@@ -1,4 +1,6 @@
-<!doctype html>
+<?php 
+	session_abort();
+?>
 
 <html>
     <head>
@@ -12,21 +14,21 @@
 			</header>
 			<div class='Login'>
 				<form method='post' name='frmLogin' action='userAuth.php'>
-					Username:
+					<p>Username:</p>
 					<input name='txtUser' type='text'>
 					<br>
 					<br>
-					Password:
+					<p>Password:</p>
 					<input name='txtPassword' type='password'>
 					<br>
 					<br>
-					<input type='Submit' name='btnLogin' value='Login'>
+					<input class='btn btn1' type='Submit' name='btnLogin' value='Login'>
 				</form>
 				
 				<br>
 				
 				<form method='post' name='frmNewUser' action='newUser.php'>
-					<input type='Submit' name='btnNewUser' value='Create Account'>
+					<input class='btn btn1' type='Submit' name='btnNewUser' value='Create Account'>
 				</form>
 			</div>
     </body>

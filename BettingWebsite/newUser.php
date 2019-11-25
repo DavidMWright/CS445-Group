@@ -16,23 +16,29 @@
 			
 			<div class='Login'>
 				<form method='post' action='createUser.php'>
-					First Name:
+					<p>First Name:</p>
 					<input name='txtFName' type='text'>
 					<br>
 					<br>
-					Last Name:
+					<p>Last Name:</p>
 					<input name='txtLName' type='text'>
 					<br>
 					<br>
-					Username:
+					<p>Username:</p>
 					<input name='txtUser' type='text'>
 					<br>
 					<br>
-					Password:
+					<p>Password:</p>
 					<input name='txtPassword' type='password'>
 					<br>
 					<br>
-					<input type='Submit' value='Create'>
+					<input class='btn btn1' type='Submit' value='Create'>
+				</form>
+				
+				<br><br>
+				
+				<form method='post' action='login.php'>
+					<input class='btn btn1' type='Submit' value='Back'>
 				</form>
 			</div>
     </body>

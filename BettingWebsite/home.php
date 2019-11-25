@@ -35,18 +35,26 @@
 
     <body>
         <header>
-					<form align="center" method='post' action='showGameAndRoster.php'>
-            <ul>
-							<?php  
-								foreach($matchRows as $data)
-								{
-									print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
-									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
-									print '</li>'; 
-								}
-							?>
-						</ul>
-					</form>
+					<div class='matches'>
+						<form method='post' action='showGameAndRoster.php'>
+							<ul>
+								<?php  
+									foreach($matchRows as $data)
+									{
+										print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
+										print $data['HomeName'] . ' vs. ' . $data['AwayName'];
+										print '</li>'; 
+									}
+								?>
+							</ul>
+						</form>
+					</div>
+					
+					<div class='Logout'>
+						<form method='post' action='login.php'>
+							<input class='btn btn1' type='Submit' value='Logout'>
+						</form>
+					</div>
         </header>
 				
 				<div id='MakeBet'>
