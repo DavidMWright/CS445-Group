@@ -75,6 +75,20 @@
 								}
 							}
 //-------------------------------------------------------
+							if($betType == 'mostGoals')
+							{
+								print '<select Name="GoalBet">';
+								
+								foreach($hPlayers as $data)
+								{
+									print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ','. $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
+								}
+								
+								foreach($aPlayers as $data)
+								{
+									print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ',' . $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
+								}
+							}
 							
 						?>
 					</select>

@@ -8,6 +8,7 @@
 	require_once('queryTeam.php');
 	require_once('queryWins.php');
 	require_once('queryShots.php');
+	require_once('queryGoals.php');
 	
 	session_start();
 	
@@ -20,6 +21,7 @@
 	
 	$winBets = getWins($dbh, $_SESSION['UserID']);
 	$shotBets = getShots($dbh, $_SESSION['UserID']);
+	$goalBets = getGoals($dbh, $_SESSION['UserID']);
 	
 	$balance = getBalance($dbh, $_SESSION['UserID']);
 ?>
@@ -51,11 +53,14 @@
 					<h2 id='PB'>Place Bet</h2>
 					
 					<form method='post' action='betPage.php'>
+						<p>Choose Bet Type:</p>
 						<select Name='BetType'>
 							<option Value='win'>Match Winner</option>
 							<option Value='mostShots'>Most Shots</option>
+							<option Value='mostGoals'>Most Goals</option>
 						</select>
 						
+						<p>Choose Match:</p>
 						<select Name='Match'>
 							<?php
 								foreach($allMatches as $data)
@@ -85,7 +90,7 @@
 								{
 									$teamName = getTeam($dbh, $data['Win']);
 									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>';
-									print '$' . $data['Amount'] . ' on ' . $teamName[0]['Name'] . '</li>';
+									print '$' . $data['Amount'] . ' on ' . $teamName[0]['Name'] . ' Winning</li>';
 								}
 							}
 							
@@ -96,6 +101,16 @@
 									$playerProfile = getPlayerProfile($dbh, $data['Player']);
 									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
 									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Shots)' . '</li>';
+								}
+							}
+							
+							if($goalBets != NULL)
+							{
+								foreach($goalBets as $data)
+								{
+									$playerProfile = getPlayerProfile($dbh, $data['Player']);
+									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
+									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Goals)' . '</li>';
 								}
 							}
 							

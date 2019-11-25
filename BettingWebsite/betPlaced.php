@@ -3,6 +3,7 @@
 	require_once('connDB.php');
 	require_once('insertWinBet.php');
 	require_once('insertShots.php');
+	require_once('insertGoals.php');
 	require_once('removeBalance.php');
 	
 	session_start();
@@ -29,6 +30,11 @@
 	{
 		$shotBet = explode(',', $_POST['ShotBet']);
 		insertShots($dbh, $userID, $shotBet[0], $shotBet[1], $shotBet[2], $amount);
+	}
+	elseif(isset($_POST['GoalBet']))
+	{
+		$goalBet = explode(',', $_POST['GoalBet']);
+		insertGoals($dbh, $userID, $goalBet[0], $goalBet[1], $goalBet[2], $amount);
 	}
 	else
 	{
