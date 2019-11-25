@@ -48,7 +48,17 @@
 			 printf ("getMessage: ". $e->getMessage () . "\n");
 			}
 			
-			print $info['fname'] ." have been succesfully added<br>";
+			print $info['fname'] ." has been succesfully added<br>";
+			
+			$sth = $dbh->prepare("Select * From Users Order By UserID Desc Limit 1");
+			$sth->execute();
+			
+			$userID = $sth->fetch();
+			
+			$sth = $dbh->prepare("Insert Into Bettors(BettorID) Values(:userID)");
+			$sth->bindValue(':userID', $userID['UserID']);
+			
+			$sth->execute();
 		?>
 		
 		<form method="post" action="login.html">

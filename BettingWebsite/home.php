@@ -78,6 +78,13 @@
 					<br>
 					
 					<h3 class='oneLine'>Current Balance:</h3> <p class='oneLine'>$<?php print $balance[0] ?></p>
+					<div class='Login'>
+						<form method='post' action='addBalance.php'>
+							Add Money:
+							<input type='number' name='Amount' min='10'>
+							<input class='btn btn1' type='Submit' value='Add'>
+						</form>
+					</div>
 				</div>
 				
 				<div id='CurrentBets'>
