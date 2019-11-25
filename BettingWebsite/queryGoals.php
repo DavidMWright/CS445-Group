@@ -11,6 +11,7 @@
 				and Matchs.HomeSportsTeamID = MadeBet.HomeID
 				and Matchs.AwaySportsTeamID = MadeBet.AwayID
 				and MadeBet.BetID = Bet.BetID
+				and MadeBet.BettorID = Bettors.BettorID
 				and Bet.BetID = Goals.BetID
 				and Bettors.BettorID = :userID"
 		);
