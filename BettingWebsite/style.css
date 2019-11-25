@@ -228,3 +228,8 @@ h1, h2, h3, p{
 select{
 		margin: 10px;
 }
+
+hr{
+	width: 80%;
+	margin-left: 10px;
+}

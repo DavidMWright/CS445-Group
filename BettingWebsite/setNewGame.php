@@ -7,7 +7,7 @@
 	
 	$dbh = db_connect();
 	
-	//require_once ('authHelp.php');
+	require_once ('authHelp.php');
 ?>
 
 <html>
@@ -44,6 +44,10 @@
 					<?php
 					print '<button class="btn btn1">Add</button>';
 					?>
+				</form>
+				
+				<form method='post' action='adminHome.php'>
+					<input type='Submit' class="btn btn1" value='Back'>
 				</form>
     </body>
 </html>

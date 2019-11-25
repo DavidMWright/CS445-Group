@@ -21,7 +21,8 @@
 
     <body>
         <header>
-					<form align="center" method='post' action='setMatchResults.php'>
+					<h1>Upcoming Games</h1>
+					<form method='post' action='setMatchResults.php'>
             <ul>
 							<?php  
 								foreach($matchRows as $data)
@@ -34,7 +35,9 @@
 						</ul>
 					</form>
 					
-					<form align="center" method='post' action='setNewGame.php'>
+					<br><hr align="center"><br>
+					
+					<form method='post' action='setNewGame.php'>
             <ul>
 							<?php  
 								
