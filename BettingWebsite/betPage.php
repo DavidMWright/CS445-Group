@@ -79,9 +79,9 @@
 						?>
 					</select>
 					
-					Bet Amount:<input type='number' Name='Amount'>
-					
-					<button type="Submit">Go</button>
+					Bet Amount:<input type='number' Name='Amount' min='10'>
+					<br>
+					<button class= 'btn btn1' type="Submit">Go</button>
 				</form>
 
         <footer>

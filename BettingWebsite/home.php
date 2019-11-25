@@ -1,9 +1,12 @@
 <?php 
 	require_once('basicErrorHandling.php');
 	require_once ('connDB.php');
+	
 	require_once ('queryMatches.php');
-	require_once('queryBets.php');
-	require_once('queryBetType');
+	require_once('queryPlayerProfile.php');
+	require_once('queryTeam.php');
+	require_once('queryWins.php');
+	require_once('queryShots.php');
 	
 	session_start();
 	
@@ -13,7 +16,9 @@
 	
 	$matchRows = getMatches($dbh, 4);
 	$allMatches = getMatches($dbh, 10);
-	$allBets = getBets($dbh, $_SESSION['UserID']);
+	
+	$winBets = getWins($dbh, $_SESSION['UserID']);
+	$shotBets = getShots($dbh, $_SESSION['UserID']);
 ?>
 
 
@@ -40,7 +45,7 @@
         </header>
 				
 				<div id='MakeBet'>
-					<h3>Place Bet</h3>
+					<h2 id='PB'>Place Bet</h2>
 					
 					<form method='post' action='betPage.php'>
 						<select Name='BetType'>
@@ -58,20 +63,30 @@
 								}
 							?>
 						</select>
-						
+						<br>
 						<button class="btn btn1" type="Submit">Go</button>
 					</form>
 				</div>
 				
 				<div id='CurrentBets'>
-					<h3>Bets Made</h3>
-					<ul>
+					<h2>Bets Made</h2>
+					<ul id='BetList'>
 						<?php
-							foreach($allBets as $data)
+							foreach($winBets as $data)
 							{
-								//$typeName = getBetType();
-								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>' . $data['Amount'] . '</li>';
+								$teamName = getTeam($dbh, $data['Win']);
+								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>';
+								print $data['Amount'] . ' on ' . $teamName[0]['Name'] . '</li>';
 							}
+							
+							foreach($shotBets as $data)
+							{
+								$playerProfile = getPlayerProfile($dbh, $data['Player']);
+								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
+								print $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Shots)' . '</li>';
+							}
+							
+							
 						?>
 					</ul>
 				</div>
