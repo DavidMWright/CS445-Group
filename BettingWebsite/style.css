@@ -173,6 +173,10 @@ li br{
 	display: inline;
 }
 
+.Login{
+	margin-left: 10px;
+}
+
 #MakeBet{
 	float: left;
 	width: 65%;
@@ -184,7 +188,8 @@ li br{
 }
 
 #BetList{
-		
+		height: 35em;
+		overflow: scroll;
 }
 
 #BetList li{

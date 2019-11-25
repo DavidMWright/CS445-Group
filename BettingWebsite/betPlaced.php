@@ -58,7 +58,7 @@
 
 				<div>
 					<form method='post' action='home.php'>
-						<button type="Submit">Home</button>
+						<button class= 'btn btn1' type="Submit">Home</button>
 					</form>
 				</div>
     </body>

@@ -10,15 +10,24 @@
 			<header>
 				<h1>Login</h1>
 			</header>
-
-			<form method='post' name='frmLogin' action='userAuth.php'>
-				Username:
-				<input name='txtUser' type='text'>
+			<div class='Login'>
+				<form method='post' name='frmLogin' action='userAuth.php'>
+					Username:
+					<input name='txtUser' type='text'>
+					<br>
+					<br>
+					Password:
+					<input name='txtPassword' type='password'>
+					<br>
+					<br>
+					<input type='Submit' name='btnLogin' value='Login'>
+				</form>
 				
-				Password:
-				<input name='txtPassword' type='password'>
+				<br>
 				
-				<input type='Submit' name='btnLogin' value='Login'>
-			</form>
+				<form method='post' name='frmNewUser' action='newUser.php'>
+					<input type='Submit' name='btnNewUser' value='Create Account'>
+				</form>
+			</div>
     </body>
 </html>
