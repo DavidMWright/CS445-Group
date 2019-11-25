@@ -2,6 +2,7 @@
 	require_once('basicErrorHandling.php');
 	require_once('connDB.php');
 	require_once('insertWinBet.php');
+	require_once('insertShots.php');
 	
 	session_start();
 	
@@ -23,18 +24,16 @@
 		$winBet = explode(',', $_POST['WinBet']);
 		insertWinBet($dbh, $userID, $winBet[0], $winBet[1], $winBet[2], $amount);
 	}
-	/*
-	elseif(isset($_POST['ShotBet'])
+	elseif(isset($_POST['ShotBet']))
 	{
-		$shotBet = $_POST['ShotBet'];
-		//query
+		$shotBet = explode(',', $_POST['ShotBet']);
+		insertShots($dbh, $userID, $shotBet[0], $shotBet[1], $shotBet[2], $amount);
 	}
 	else
 	{
 		db_close($dbh);
 		die("ERROR: No Bet Post Data");
 	}
-	*/
 ?>
 
 <html>

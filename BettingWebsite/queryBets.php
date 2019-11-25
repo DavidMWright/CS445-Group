@@ -2,7 +2,7 @@
 	function getBets($dbh, $userID)
 	{
 		$sth = $dbh->prepare(
-			 "Select Home.Name as HomeName, Away.Name as AwayName, Amount
+			 "Select Home.Name as HomeName, Away.Name as AwayName, Amount, BetID
 				From SportsTeams as Home, SportsTeams as Away, Matchs, MadeBet, Bettors
 				Where Home.SportsTeamID = Matchs.HomeSportsTeamID
 				and Away.SportsTeamID = Matchs.AwaySportsTeamID
