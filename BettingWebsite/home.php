@@ -3,7 +3,8 @@
 	require_once ('connDB.php');
 	
 	require_once('queryBalance.php');
-	require_once ('queryMatches.php');
+	require_once('queryUpcomingMatches.php');
+	// require_once ('queryMatches.php');
 	require_once('queryPlayerProfile.php');
 	require_once('queryTeam.php');
 	require_once('queryWins.php');
@@ -16,8 +17,10 @@
 	
 	$dbh = db_connect();
 	
-	$matchRows = getMatches($dbh, 4);
-	$allMatches = getMatches($dbh, 10);
+	$upcoming = getUpcoming($dbh);
+	
+	//$matchRows = getMatches($dbh, 4);
+	//$allMatches = getMatches($dbh, 10);
 	
 	$winBets = getWins($dbh, $_SESSION['UserID']);
 	$shotBets = getShots($dbh, $_SESSION['UserID']);
@@ -39,7 +42,7 @@
 						<form method='post' action='showGameAndRoster.php'>
 							<ul>
 								<?php  
-									foreach($matchRows as $data)
+									foreach($upcoming as $data)
 									{
 										print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
 										print $data['HomeName'] . ' vs. ' . $data['AwayName'];
@@ -71,7 +74,7 @@
 						<p>Choose Match:</p>
 						<select Name='Match'>
 							<?php
-								foreach($allMatches as $data)
+								foreach($upcoming as $data)
 								{
 									print '<option Value='. $data['HomeID'] . ',' . $data['AwayID'] . '>';
 									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
@@ -88,7 +91,7 @@
 					<h3 class='oneLine'>Current Balance:</h3> <p class='oneLine'>$<?php print $balance[0] ?></p>
 					<div class='Login'>
 						<form method='post' action='addBalance.php'>
-							Add Money:
+							<p>Add Money:</p>
 							<input type='number' name='Amount' min='10'>
 							<input class='btn btn1' type='Submit' value='Add'>
 						</form>
