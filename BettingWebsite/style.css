@@ -169,6 +169,10 @@ li br{
 	height: 180%;
 }
 
+.oneLine{
+	display: inline;
+}
+
 #MakeBet{
 	float: left;
 	width: 65%;
@@ -190,8 +194,7 @@ li br{
 	padding: 1em;
 }
 
-
-h1, h2{
+h1, h2, h3{
 		margin: 10px;
 }
 

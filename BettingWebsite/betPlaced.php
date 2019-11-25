@@ -3,6 +3,7 @@
 	require_once('connDB.php');
 	require_once('insertWinBet.php');
 	require_once('insertShots.php');
+	require_once('removeBalance.php');
 	
 	session_start();
 	
@@ -34,6 +35,8 @@
 		db_close($dbh);
 		die("ERROR: No Bet Post Data");
 	}
+	
+	removeBalance($dbh, $_SESSION['UserID'], $amount);
 ?>
 
 <html>

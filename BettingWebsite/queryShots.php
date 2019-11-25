@@ -1,6 +1,8 @@
 <?php	
 	function getShots($dbh, $userID)
 	{
+		$rows = array();
+		
 		$sth = $dbh->prepare(
 			 "Select Home.Name as HomeName, Away.Name as AwayName, Amount, Shots.PlayerID as Player
 				From SportsTeams as Home, SportsTeams as Away, Matchs, MadeBet, Bet, Bettors, Shots

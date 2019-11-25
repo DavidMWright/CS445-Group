@@ -2,6 +2,7 @@
 	require_once('basicErrorHandling.php');
 	require_once ('connDB.php');
 	
+	require_once('queryBalance.php');
 	require_once ('queryMatches.php');
 	require_once('queryPlayerProfile.php');
 	require_once('queryTeam.php');
@@ -19,6 +20,8 @@
 	
 	$winBets = getWins($dbh, $_SESSION['UserID']);
 	$shotBets = getShots($dbh, $_SESSION['UserID']);
+	
+	$balance = getBalance($dbh, $_SESSION['UserID']);
 ?>
 
 
@@ -66,26 +69,35 @@
 						<br>
 						<button class="btn btn1" type="Submit">Go</button>
 					</form>
+					
+					<br>
+					
+					<h3 class='oneLine'>Current Balance:</h3> <p class='oneLine'>$<?php print $balance[0] ?></p>
 				</div>
 				
 				<div id='CurrentBets'>
 					<h2>Bets Made</h2>
 					<ul id='BetList'>
 						<?php
-							foreach($winBets as $data)
+							if($winBets != NULL)
 							{
-								$teamName = getTeam($dbh, $data['Win']);
-								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>';
-								print $data['Amount'] . ' on ' . $teamName[0]['Name'] . '</li>';
+								foreach($winBets as $data)
+								{
+									$teamName = getTeam($dbh, $data['Win']);
+									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>';
+									print '$' . $data['Amount'] . ' on ' . $teamName[0]['Name'] . '</li>';
+								}
 							}
 							
-							foreach($shotBets as $data)
+							if($shotBets != NULL)
 							{
-								$playerProfile = getPlayerProfile($dbh, $data['Player']);
-								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
-								print $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Shots)' . '</li>';
+								foreach($shotBets as $data)
+								{
+									$playerProfile = getPlayerProfile($dbh, $data['Player']);
+									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
+									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Shots)' . '</li>';
+								}
 							}
-							
 							
 						?>
 					</ul>
