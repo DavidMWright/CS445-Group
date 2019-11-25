@@ -1,7 +1,7 @@
 <?php
 	require_once('queryBettorID.php');
 	
-	function insertWinBet($dbh, $userID, $homeID, $awayID, $winner, $amount)
+	function insertShots($dbh, $userID, $homeID, $awayID, $playerID, $amount)
 	{
 		$sth = $dbh->prepare("Insert Into Bet() Value()");
 		$sth->execute();
@@ -23,9 +23,9 @@
 		$sth->execute();
 		
 		
-		$sth = $dbh->prepare("Insert Into Win(BetID, TeamID) Values(:betID, :teamID)");
+		$sth = $dbh->prepare("Insert Into Shots(BetID, PlayerID) Values(:betID, :playerID)");
 		$sth->bindValue(':betID', $betID[0]);
-		$sth->bindValue(':teamID', $winner);
+		$sth->bindValue(':playerID', $playerID);
 		
 		$sth->execute();
 	}

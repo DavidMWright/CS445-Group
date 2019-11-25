@@ -1,8 +1,9 @@
 <?php 
-	require_once("basicErrorHandling.php");
+	require_once('basicErrorHandling.php');
 	require_once('connDB.php');
 	require_once('queryTeam.php');
 	require_once('queryTeamPlayers.php');
+	
 	
 	session_start();
 	
@@ -54,27 +55,27 @@
 							if($betType == 'win')
 							{
 								print '<select Name="WinBet">';
-								
+
 								print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ',' . $homeTeamID . '>' . $home[0]['Name'] . '</option>';
 								print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ',' . $awayTeamID . '>' . $away[0]['Name'] . '</option>';
 							}
-//-------------------------------------------------------
-							elseif($betType == 'mostShots')
+//-------------------------------------------------------	
+							if($betType == 'mostShots')
 							{
 								print '<select Name="ShotBet">';
 								
 								foreach($hPlayers as $data)
 								{
-									print '<option Value=' . $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
+									print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ','. $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
 								}
 								
 								foreach($aPlayers as $data)
 								{
-									print '<option Value=' . $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
+									print '<option Value=' . $homeTeamID . ',' . $awayTeamID . ',' . $data['PlayerID'] . '>' . $data['FName'] . ' ' . $data['LName'] . '</option>';
 								}
 							}
 //-------------------------------------------------------
-
+							
 						?>
 					</select>
 					

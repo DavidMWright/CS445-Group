@@ -3,6 +3,7 @@
 	require_once ('connDB.php');
 	require_once ('queryMatches.php');
 	require_once('queryBets.php');
+	require_once('queryBetType');
 	
 	session_start();
 	
@@ -68,6 +69,7 @@
 						<?php
 							foreach($allBets as $data)
 							{
+								//$typeName = getBetType();
 								print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>' . $data['Amount'] . '</li>';
 							}
 						?>
