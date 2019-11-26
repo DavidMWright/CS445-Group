@@ -97,6 +97,13 @@
 					<br>
 					<button class= 'btn btn1' type="Submit">Go</button>
 				</form>
+				
+				<form method='post' action='home.php'>					
+					<?php
+					print '<button class="btn btn1">';
+					print "Back" . "</button>";
+					?>
+				</form>
 
         <footer>
 

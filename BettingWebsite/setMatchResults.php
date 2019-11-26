@@ -37,6 +37,12 @@
 					print '<button class="btn btn1" name="teams" type="Submit" Value=' . $hometeamID . ',' . $awayteamID . '>Go</button>';
 					?>
 				</form>
+				<form method='post' action='adminHome.php'>					
+					<?php
+					print '<button class="btn btn1">';
+					print "Back" . "</button>";
+					?>
+				</form>
     </body>
 </html>
 
