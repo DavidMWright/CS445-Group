@@ -9,6 +9,7 @@
 	require_once('queryWins.php');
 	require_once('queryShots.php');
 	require_once('queryGoals.php');
+	require_once('queryOutcome.php');
 	
 	session_start();
 	
@@ -40,9 +41,12 @@
 								<?php  
 									foreach($upcoming as $data)
 									{
-										print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
-										print $data['HomeName'] . ' vs. ' . $data['AwayName'];
-										print '</li>'; 
+										if($data['FinalScoreHome'] == NULL)
+										{
+											print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
+											print $data['HomeName'] . ' vs. ' . $data['AwayName'];
+											print '</li>';
+										}
 									}
 								?>
 							</ul>
@@ -72,9 +76,12 @@
 							<?php
 								foreach($upcoming as $data)
 								{
-									print '<option Value='. $data['HomeID'] . ',' . $data['AwayID'] . '>';
-									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
-									print '</option>';
+									if($data['FinalScoreHome'] == NULL)
+									{
+										print '<option Value='. $data['HomeID'] . ',' . $data['AwayID'] . '>';
+										print $data['HomeName'] . ' vs. ' . $data['AwayName'];
+										print '</option>';
+									}
 								}
 							?>
 						</select>
@@ -104,7 +111,23 @@
 								{
 									$teamName = getTeam($dbh, $data['Win']);
 									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>';
-									print '$' . $data['Amount'] . ' on ' . $teamName[0]['Name'] . ' Winning</li>';
+									print '$' . $data['Amount'] . ' on ' . $teamName[0]['Name'] . ' Winning<br>';
+									
+									$outcome = getOutcome($dbh, $data['BetID']);
+									if($outcome == NULL)
+									{
+										print 'Outcome TBD';
+									}
+									elseif($outcome = 1)
+									{
+										print 'You Won!';
+									}
+									else
+									{
+										print 'You Lost';
+									}
+									
+									print '</li>';
 								}
 							}
 							
@@ -114,7 +137,23 @@
 								{
 									$playerProfile = getPlayerProfile($dbh, $data['Player']);
 									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
-									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Shots)' . '</li>';
+									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Shots)<br>';
+									
+									$outcome = getOutcome($dbh, $data['BetID']);
+									if($outcome == NULL)
+									{
+										print 'Outcome TBD';
+									}
+									elseif($outcome = 1)
+									{
+										print 'You Won!';
+									}
+									else
+									{
+										print 'You Lost';
+									}
+									
+									print '</li>';
 								}
 							}
 							
@@ -124,7 +163,23 @@
 								{
 									$playerProfile = getPlayerProfile($dbh, $data['Player']);
 									print '<li>' . $data['HomeName'] . ' vs. ' . $data['AwayName'] . '<br>'; 
-									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Goals)' . '</li>';
+									print '$' . $data['Amount'] . ' on ' . $playerProfile[0]['FName'] . ' ' . $playerProfile[0]['LName'] . ' (Most Goals)<br>';
+									
+									$outcome = getOutcome($dbh, $data['BetID']);
+									if($outcome == NULL)
+									{
+										print 'Outcome TBD';
+									}
+									elseif($outcome = 1)
+									{
+										print 'You Won!';
+									}
+									else
+									{
+										print 'You Lost';
+									}
+									
+									print '</li>';
 								}
 							}
 							

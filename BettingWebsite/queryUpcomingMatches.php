@@ -12,12 +12,12 @@
 		$rows = array();
 
 		$sth = $dbh -> prepare(
-										 "Select Home.SportsTeamID as HomeID, Home.Name as HomeName, Away.SportsTeamID as AwayID, Away.Name as AwayName, DateOfMatch
-											From SportsTeams as Home, SportsTeams as Away, Matchs
-											Where Home.SportsTeamID = Matchs.HomeSportsTeamID
-											and Away.SportsTeamID = Matchs.AwaySportsTeamID
-											and DateOfMatch > :currentDate
-											Order by DateOfMatch Asc, HomeID"
+						 "Select Home.SportsTeamID as HomeID, Home.Name as HomeName, Away.SportsTeamID as AwayID, Away.Name as AwayName, DateOfMatch, FinalScoreHome
+							From SportsTeams as Home, SportsTeams as Away, Matchs
+							Where Home.SportsTeamID = Matchs.HomeSportsTeamID
+							and Away.SportsTeamID = Matchs.AwaySportsTeamID
+							and DateOfMatch > :currentDate
+							Order by DateOfMatch Asc, HomeID"
 		);
 		
 		$sth -> bindValue(":currentDate", date('Y-m-d'));

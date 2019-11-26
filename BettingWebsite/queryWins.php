@@ -4,7 +4,7 @@
 		$rows = array();
 
 		$sth = $dbh->prepare(
-			 "Select Home.Name as HomeName, Away.Name as AwayName, Amount, Win.TeamID as Win
+			 "Select Home.Name as HomeName, Away.Name as AwayName, Amount, Win.TeamID as Win, FinalScoreHome, FinalScoreAway, Bet.BetID
 				From SportsTeams as Home, SportsTeams as Away, Matchs, MadeBet, Bet, Bettors, Win
 				Where Home.SportsTeamID = Matchs.HomeSportsTeamID
 				and Away.SportsTeamID = Matchs.AwaySportsTeamID

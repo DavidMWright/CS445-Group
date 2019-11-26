@@ -1,7 +1,7 @@
 <?php 
 	require_once('basicErrorHandling.php');
 	require_once ('connDB.php');
-	require_once ('queryMatches.php');
+	require_once ('queryUpcomingMatches.php');
 	
 	session_start();
 	
@@ -9,7 +9,7 @@
 	
 	$dbh = db_connect();
 	
-	$matchRows = getMatches($dbh, 4);
+	$matchRows = getUpcoming($dbh);
 ?>
 
 
@@ -22,31 +22,37 @@
     <body>
         <header>
 					<h1>Upcoming Games</h1>
-					<form method='post' action='setMatchResults.php'>
-            <ul>
-							<?php  
-								foreach($matchRows as $data)
-								{
-									print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
-									print $data['HomeName'] . ' vs. ' . $data['AwayName'];
-									print '</li>'; 
-								}
-							?>
-						</ul>
-					</form>
-					
-					<br><hr align="center"><br>
+					<div class='matches'>
+						<form method='post' action='setMatchResults.php'>
+							<ul>
+								<?php  
+									foreach($matchRows as $data)
+									{
+										if($data['FinalScoreHome'] == NULL)
+										{
+											print '<li><button class="btn btn1" name="teams" type="Submit" Value=' . $data['HomeID'] . ',' . $data['AwayID'] . '>';
+											print $data['HomeName'] . ' vs. ' . $data['AwayName'];
+											print '</li>';
+										} 
+									}
+								?>
+							</ul>
+						</form>
+					</div>
+				</header>
+				
+				<div>
+					<br><br><br><br><hr align="center"><br>
 					
 					<form method='post' action='setNewGame.php'>
-            <ul>
+						<ul>
 							<?php  
 								
 									print '<button class="btn btn1">Add New Game</button>';
 							?>
 						</ul>
 					</form>
-        </header>
-
+				</div>
     </body>
 </html>
 

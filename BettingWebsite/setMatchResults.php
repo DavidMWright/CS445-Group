@@ -10,9 +10,9 @@
 	require_once ('authHelp.php');
 	
 	$value = array();
-		$value = explode(',', $_POST['teams']);
-		$hometeamID = $value[0];
-		$awayteamID = $value[1];
+	$value = explode(',', $_POST['teams']);
+	$hometeamID = $value[0];
+	$awayteamID = $value[1];
 ?>
 
 <html>
