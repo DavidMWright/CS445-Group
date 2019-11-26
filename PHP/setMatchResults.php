@@ -2,7 +2,6 @@
 	require_once("basicErrorHandling.php");
 	require_once('connDB.php');
 	require_once('insertGameResults.php');
-	require_once('queryTeam.php');
 	
 	session_start();
 	
@@ -11,11 +10,9 @@
 	require_once ('authHelp.php');
 	
 	$value = array();
-		$value = explode(',', $_POST['teams']);
-		$hometeamID = $value[0];
-		$awayteamID = $value[1];
-		$hometeam = getteam($dbh, $hometeamID);
-		$awayteam = getteam($dbh, $awayteamID);
+	$value = explode(',', $_POST['teams']);
+	$hometeamID = $value[0];
+	$awayteamID = $value[1];
 ?>
 
 <html>
@@ -29,13 +26,6 @@
             <h1>Set Game Results</h1>
         </header>
 				
-				<?php  
-					print "<table><tr>";
-					print '<td class="btn btn1">';
-					print $hometeam[0]['Name'] . ' vs. ' . $awayteam[0]['Name'];
-					print '</td><tr><table>'; 
-				?>
-				
 				<form method='post' action='showAddMatchResults.php'>
 					
 					Number of Shots on Goal for Home Team:<input type='number' Name='ShotsOnGoalHome'>
@@ -47,18 +37,9 @@
 					print '<button class="btn btn1" name="teams" type="Submit" Value=' . $hometeamID . ',' . $awayteamID . '>Go</button>';
 					?>
 				</form>
-				<form method='post' action='setMatchHighScorer.php'>
-					<ul>
-						<?php 
-								print '<button class="btn btn1" name="team" type="Submit" Value=' . $hometeamID . ',' . $awayteamID . '>';
-								print "Add High Scorer";
-								print '</button>'; 
-						?>
-					</ul>
-				</form>
 				<form method='post' action='adminHome.php'>					
 					<?php
-					print '<br><button class="btn btn1">';
+					print '<button class="btn btn1">';
 					print "Back" . "</button>";
 					?>
 				</form>

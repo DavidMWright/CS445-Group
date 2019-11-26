@@ -1,0 +1,235 @@
+ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+
+header li {
+    float: left;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+li br{
+	margin: 1em 0;
+}
+
+/*body {
+	margin: 0;
+	padding: 0;
+}*/
+
+.banner-text {
+		width: 100%;
+		position: absolute;
+}
+
+.banner-text ul {
+	height: 50px;
+	float: right;
+}
+
+.banner-text ul li {
+	display: inline-block;
+	padding: 40px 15px;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 20px;
+}
+
+
+
+.animation-area {
+	background: linear-gradient(to left, #ffffff, #3498db);
+	width: 100%;
+	height: 100vh;
+}
+
+.box-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.box-area li {
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 25px;
+	height: 25px;
+	background: rgba(255,255,255,0.2);
+	animation: animate 20s linear infinite;
+	bottom: -150px;
+}
+
+.box-area li:nth-child(1) {
+	left: 86%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0s;
+}
+
+.box-area li:nth-child(2) {
+	left: 12%;
+	width: 30px;
+	height: 30px;
+	animation-delay: 1.5s;
+	animation-duration: 10s;
+}
+
+.box-area li:nth-child(3) {
+	left: 70%;
+	width: 100px;
+	height: 100px;
+	animation-delay: 5.5s;
+}
+
+.box-area li:nth-child(4) {
+	left: 42%;
+	width: 150px;
+	height: 150px;
+	animation-delay: 0s;
+	animation-duration: 15s;
+}
+
+.box-area li:nth-child(5) {
+	left: 65%;
+	width: 40px;
+	height: 40px;
+	animation-delay: 0s;
+	animation-duration: 15s;
+}
+
+.box-area li:nth-child(6) {
+	left: 15%;
+	width: 110px;
+	height: 110px;
+	animation-delay: 3.5s;
+}
+
+@keyframes animate {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-800px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+.container {
+	text-align: center;
+	margin-top: 360px;
+}
+
+.btn {
+	border: 1px solid #3498db;
+	background: none;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-family: "montserrat";
+	cursor: pointer;
+	margin: 10px;
+	transition: 0.8s;
+	position: relative;
+	overflow: hidden;
+}
+
+.btn1 {
+	color: #3498db;
+}
+
+.btn1:hover {
+	color: #fff;
+}
+
+.btn::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background: #3498db;
+	z-index: -1;
+	transition: 0.8s;
+}
+
+.btn1::before {
+	top: 0;
+	border-radius: 0 0 50% 50%;
+}
+
+.btn1:hover::before{
+	height: 180%;
+}
+
+.oneLine{
+	display: inline;
+}
+
+.Login p{
+	margin-left: 10px;
+	display: inline;
+}
+
+.matches{
+	float: left;
+	width: 90%;
+	height: 62px;
+	
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+
+.Logout{
+	display: inline;
+	width: 10%;
+	margin: 0px;
+}
+
+#MakeBet{
+	box-sizing: border-box;
+	float: left;
+	width: 65%;
+}
+
+#CurrentBets{
+	box-sizing: border-box;
+	border-top: 1px solid transparent;
+	margin-top: 12px;
+	margin-left: 65%;
+	wdith: 35%;
+}
+
+#BetList{
+	height: 35em;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+#BetList li{
+	margin: 1em 0;
+	border: 1px solid black;
+	width: 50%;
+	padding: 1em;
+}
+
+h1, h2, h3, p{
+	margin: 16px 10px;
+}
+
+select{
+		margin: 10px;
+}
+
+hr{
+	width: 80%;
+	margin-left: 10px;
+}
