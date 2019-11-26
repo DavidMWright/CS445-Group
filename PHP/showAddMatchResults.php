@@ -3,6 +3,7 @@
 	require_once('connDB.php');
 	require_once('insertGameResults.php');
 	require_once('updateWinOutcomes.php');
+	require_once('updateGoalsOutcomes.php');
 	
 	session_start();
 	
@@ -21,7 +22,9 @@
 	
 	insertGameResults($dbh, $hometeamID, $awayteamID, $shotsHomeTeam,
 										$shotsAwayTeam, $finalScoreHome, $finalScoreAway);
-	updateWinOutcomes($dbh, $hometeamID, $awayteamID, $finalScoreHome, $finalScoreAway);					
+	updateWinOutcomes($dbh, $hometeamID, $awayteamID, $finalScoreHome, $finalScoreAway);
+	updateGoalsOutcomes($dbh, $hometeamID, $awayteamID, $)
+	
 	
 ?>
 

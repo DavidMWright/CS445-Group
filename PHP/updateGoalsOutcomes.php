@@ -4,19 +4,19 @@
   // Date:				November 25, 2019
   // Class:				CS 445
   // Project: 		Betting Website
-  // Description: Update outcomes and distribute winnings for win bets
+  // Description: Update outcomes and distribute winnings for goal bets
 	
 	require_once('queryBalance.php');
   
-	function updateWinOutcomes($dbh, $homeID, $awayID, $homeScore, $awayScore)
+	function updateGoalsOutcomes($dbh, $homeID, $awayID, $playerID)
 	{
 		$bets = array();
 
 		$sth = $dbh -> prepare(
-										 "Select MadeBet.BetID From MadeBet, Matchs, Win
+										 "Select MadeBet.BetID From MadeBet, Matchs, Goals
 											Where MadeBet.HomeID=Matchs.HomeSportsTeamID 
 											and MadeBet.AwayID=Matchs.AwaySportsTeamID
-											and MadeBet.BetID=Win.BetID
+											and MadeBet.BetID=Goals.BetID
 											and MadeBet.HomeID=:homeID
 											and MadeBet.AwayID=:awayID"
 		);
@@ -33,8 +33,8 @@
 		
 		foreach($bets as $data)
 		{
-			$sth = $dbh->prepare("Select TeamID, Bettors.BettorID, Amount From Win, MadeBet, Bettors 
-														Where Win.BetID=MadeBet.BetID and MadeBet.BettorID=Bettors.BettorID and MadeBet.BetID=:betID");
+			$sth = $dbh->prepare("Select PlayerID, Bettors.BettorID, Amount From Goals, MadeBet, Bettors 
+														Where Goals.BetID=MadeBet.BetID and MadeBet.BettorID=Bettors.BettorID and MadeBet.BetID=:betID");
 			$sth->bindValue(':betID', $data['BetID']);
 			
 			$sth->execute();
@@ -45,7 +45,7 @@
 			$sth = $dbh->prepare("Update MadeBet Set Outcome=:outcome Where BetID=:betID");
 			$sth->bindValue(':betID', $data['BetID']);
 			
-			if($bet['TeamID'] == $homeID && $homeScore > $awayScore || $bet['TeamID'] == $awayID && $awayScore > $homeScore)
+			if($bet['PlayerID'] == $playerID)
 			{
 				$sth->bindValue(':outcome', 1);
 				$win = true;
@@ -64,7 +64,7 @@
 			{
 				$sth = $dbh->prepare("Update Bettors Set Balance=:newBalance Where BettorID=:bettorID");
 				$sth->bindValue(':bettorID', $bet['BettorID']);
-				$sth->bindValue(':newBalance', $bet['Amount'] + getBalance($dbh, $bet['BettorID'])[0]);
+				$sth->bindValue(':newBalance', $bet['Amount'] + (getBalance($dbh, $bet['BettorID'])[0] * 2));
 				
 				$sth->execute();
 			}

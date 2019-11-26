@@ -2,21 +2,23 @@
 	require_once("basicErrorHandling.php");
 	require_once('connDB.php');
 	require_once('insertHighScorer.php');
+	require_once('updateGoalsOutcomes.php');
 	
 	session_start();
 	
 	$dbh = db_connect();
 	
-	//require_once ('authHelp.php');
+	require_once ('authHelp.php');
 	
-		$value = explode(',', $_POST['teams']);
-		$playerID = $_POST['player'];
-		$hometeamID = $value[0];
-		$awayteamID = $value[1];
-		$goals = $_POST['goals'];
-		
-		insertHighScorer($dbh, $playerID, $hometeamID, $awayteamID, 
-											$goals);
+	$value = explode(',', $_POST['teams']);
+	$playerID = $_POST['player'];
+	$hometeamID = $value[0];
+	$awayteamID = $value[1];
+	$goals = $_POST['goals'];
+	
+	insertHighScorer($dbh, $playerID, $hometeamID, $awayteamID, $goals);
+	
+	updateGoalsOutcomes($dbh, $hometeamID, $awayteamID, $playerID);
 ?>
 
 <html>
